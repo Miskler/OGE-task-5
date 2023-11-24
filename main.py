@@ -36,7 +36,7 @@ def calc_result(number:int, id:int = 0):
         except:
             actual_percent = 0
 
-        bar.bar_prefix = f"Рассчетное время: {who_percent(secs=time()-time_start, percent=actual_percent)} сек | "
+        bar.bar_prefix = f"Рассчетное время: {who_percent(secs=time()-time_start, percent=actual_percent)} сек |"
         bar.update()
         
         
@@ -82,7 +82,7 @@ def show_result(results:dict, result:str = "", actions:int = 0):
 
 if __name__ == '__main__': 
     result = calc_result(number=start_number)
-    bar.bar_prefix = f"Операция выполнялась {round(time()-time_start, 2)} сек | "
+    bar.bar_prefix = f"Операция выполнялась {round(time()-time_start, 2)} сек |"
     bar.update()
     bar.finish()
 
