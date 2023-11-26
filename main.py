@@ -36,7 +36,7 @@ def calc_result(number:int, id:int = 0):
         except:
             actual_percent = 0
 
-        bar.bar_prefix = f"Рассчетное время: {who_percent(secs=time()-time_start, percent=actual_percent)} сек |"
+        bar.bar_prefix = f"Рассчетное время: {who_percent(secs=time()-time_start, percent=actual_percent)} сек | {solutions_counter} решений найдено |"
         bar.update()
         
         
@@ -53,6 +53,12 @@ def calc_result(number:int, id:int = 0):
     else:
         if end_number == number:
             solutions_counter += 1
+        
+        if id <= operations_count:
+            current_nesting += 1
+            bar.bar_suffix = f"| {current_nesting} текущая вложенность {f-current_nesting} |"
+            bar.update()
+
         return end_number == number
     return intermediate_result
 
